@@ -17,13 +17,17 @@ const App = () => {
     });
   };
 
-  const deleteRow = (i) => {
+  function deleteRow(i) {
     const newArray = [...array];
     newArray.splice(i, 1);
     setArray(newArray);
-  };
+  }
 
-  const onSupport = () => {
+  // const editRow = () => {
+  //   const newArray =
+  // }
+
+  function onSupport() {
     setArray([...array, state]);
     setState({
       firstName: "",
@@ -31,13 +35,13 @@ const App = () => {
       fatherName: "",
       motherName: "",
     });
-  };
+  }
+
+  function onEditClick(item) {
+    setState(item);
+  }
 
   console.log(array);
-  // const clearState = () => {
-  //   input.value.length = '';
-  // }
-  // const onServe = () => { setArray([...array, state])};
 
   return (
     <div className="pa5 bg-light-blue">
@@ -98,6 +102,7 @@ const App = () => {
             <td>{item.motherName}</td>
             <td>
               <button onClick={() => deleteRow(i)}>delete</button>
+              <button onClick={() => onEditClick(item)}>edit</button>
             </td>
           </tr>
         ))}
@@ -106,3 +111,4 @@ const App = () => {
   );
 };
 export default App;
+
