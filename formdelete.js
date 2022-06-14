@@ -36,9 +36,29 @@ const App = () => {
       motherName: "",
     });
   }
+  
+  function onSupport() {
+    if (
+      state.fatherName &&
+      state.firstName &&
+      state.lastName &&
+      state.motherName
+    ) {
+      setArray([...array, state]);
+      setState({
+        firstName: "",
+        lastName: "",
+        fatherName: "",
+        motherName: "",
+      });
+    }else {
+      alert('all input fields are allowed')
+    }
+  }
 
   function onEditClick(item) {
     setState(item);
+     array.splice(i,1)
   }
 
   console.log(array);
